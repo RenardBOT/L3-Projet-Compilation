@@ -24,7 +24,7 @@ En dehors de cette utilisation, tous les autres # seront considérés comme des 
 
 ## Mise en forme
 
-* Et _ sont utilisés pour mettre en évidence certains mots du texte (gras et italique). Dans ce cas, ils sont
+Les symboles * et _ sont utilisés pour mettre en évidence certains mots du texte (gras et italique). Dans ce cas, ils sont
 utilisés par paire.  
 Une seule étoile ou un seul underscore de part et d’autre d’un texte met celui-ci en italique.
 Deux étoiles ou deux underscores (sans espaces entre les deux) de part et d’autre d’un texte met celui-ci
