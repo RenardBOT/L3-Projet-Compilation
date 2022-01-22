@@ -56,18 +56,18 @@ partie du texte et traduits tels quels dans le fichier html.
 
 ## Traduction en HTML 
 
-Définition d’un titre de niveau 1 : < h1 > titre< /h1 >
-Définition d’un titre de niveau 2 : < h2 > titre< /h2 >
+Définition d’un titre de niveau 1 : < h1 > titre < /h1 >
+Définition d’un titre de niveau 2 : < h2 > titre < /h2 >
 Etc.
-Mise en gras d’un texte : <strong>texte</strong>
-Mise en italique d’un texte : <em>texte</em>
-Changement de paragraphe <br>
+Mise en gras d’un texte :  < strong > texte < /strong >
+Mise en italique d’un texte : < em > text < /em >
+Changement de paragraphe < br >
 Définition d’une liste à puces :
-<ul>
-<li> item </li>
-<li> item </li>
+< ul >
+< li > item < /li >
+< li > item < /li >
 …
-</ul>
+< /ul >
 
 # Etapes du projet
 
