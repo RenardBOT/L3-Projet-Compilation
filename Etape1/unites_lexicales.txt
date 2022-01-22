@@ -6,4 +6,4 @@ Italique : Description
 
 Puce : Description 
 
-RetourChariot : Description 
+NouveauParagraphe : Description 
