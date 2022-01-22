@@ -43,7 +43,7 @@ retours à la ligne, éventuellement séparés par des espaces.
 
 ## Liste à puces
 
-* Peut également être utilisé pour introduire les items d’une liste à puce. Dans ce cas, il doit
+Le * peut également être utilisé pour introduire les items d’une liste à puce. Dans ce cas, il doit
 obligatoirement se trouver en début de ligne et être suivi d’au moins 1 espace. Le texte qui suit constitue
 un item de la liste. Celui-ci s’arrête au prochain item (prochaine * se trouvant en début de ligne) ou à la
 prochaine ligne vide (pour le dernier item de la liste). 
