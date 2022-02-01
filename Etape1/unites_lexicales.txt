@@ -2,24 +2,14 @@
 
 Chaîne de caractères : Suite de caractères alphanumériques, lettres accentuées, caractères spéciaux à l'exception des caractères réservés { * , _ , # }.
 
-Titre de niveau 1 : # en début de ligne.
+Niveau de titre : # en début de ligne, peut comporter entre 1 et 3 espaces après le début de la ligne et d'autres # (sans espace) pour augmenter le niveau du titre (jusqu'a 6).
 
-Titre de niveau 2 : ## en début de ligne.
+Balise de mise en forme en italique : Caractère * ou _.
 
-Titre de niveau 3 : ### en début de ligne.
+Balise de mise en forme en gras : Caractères ** ou __ .
 
-Titre de niveau 4 : #### en début de ligne.
+Balise de mise en forme en gras et italique : Caractères *** ou ___.
 
-Titre de niveau 5 : ##### en début de ligne.
+Puce : Caractère * en début de ligne suivi d'au moins un espace. Indique un élement d'une liste à puce.
 
-Titre de niveau 6 : ###### en début de ligne.
-
-Italique : Caractère * ou _
-
-Gras : Caractères ** ou __ 
-
-GrasItalique : Caractères *** ou ___
-
-Puce : Caractère * en début de ligne suivi d'un espace.
-
-Paragraphe : Deux sauts de lignes ou plus ( \n ) consécutifs.
+Retour à la ligne : Caractère \n indiquant la fin d'une ligne.
