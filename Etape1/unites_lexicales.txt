@@ -20,6 +20,6 @@ Gras : Caractères ** ou __
 
 GrasItalique : Caractères *** ou ___
 
-Puce : Caractère > en début de ligne.
+Puce : Caractère * en début de ligne suivi d'un espace.
 
-Paragraphe : Deux sauts de lignes ( \n ) consécutifs.
+Paragraphe : Deux sauts de lignes ou plus ( \n ) consécutifs.
