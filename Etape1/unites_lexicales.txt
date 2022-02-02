@@ -6,7 +6,7 @@ Chaîne de caractères : Suite de caractères alphanumériques, lettres accentu�
 
 Niveau de titre (1 à 6) : Peut comporter entre 1 et 3 espaces après le début de la ligne suivi d'un ou plusieurs # (sans espace) pour augmenter le niveau du titre (jusqu'a 6).
 
-Balise de mise en forme en italique : Caractère * ou _ .
+Balise de mise en forme en italique : Caractère * ou _ . 
 
 Balise de mise en forme en gras : Caractères ** ou __ .
 
@@ -14,4 +14,4 @@ Balise de mise en forme en gras et italique : Caractères *** ou ___ .
 
 Puce : Caractère * en début de ligne suivi d'au moins un espace. Indique un élement d'une liste à puce.
 
-Retour à la ligne : Caractère \n ou \r indiquant la fin d'une ligne.
+Retour à la ligne : Caractère soit \n , soit \n\r indiquant la fin d'une ligne (repectivement sous OS Posix ou d'origine DOS).
