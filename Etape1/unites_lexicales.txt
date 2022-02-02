@@ -1,15 +1,17 @@
-## Ci-dessous la description des unités lexicales demandées ##
+## Ci-dessous la description des unités lexicales demandées.
 
-Chaîne de caractères : Suite de caractères alphanumériques, lettres accentuées, caractères spéciaux à l'exception des caractères réservés { * , _ , # }.
+Groupe 3 ##
 
-Niveau de titre : # en début de ligne, peut comporter entre 1 et 3 espaces après le début de la ligne et d'autres # (sans espace) pour augmenter le niveau du titre (jusqu'a 6).
+Chaîne de caractères : Suite de caractères alphanumériques, lettres accentuées, caractères spéciaux à l'exception des caractères réservés dans l'ensemble { * , _ , # }.
 
-Balise de mise en forme en italique : Caractère * ou _.
+Niveau de titre (1 à 6) : Peut comporter entre 1 et 3 espaces après le début de la ligne suivi d'un ou plusieurs # (sans espace) pour augmenter le niveau du titre (jusqu'a 6).
+
+Balise de mise en forme en italique : Caractère * ou _ .
 
 Balise de mise en forme en gras : Caractères ** ou __ .
 
-Balise de mise en forme en gras et italique : Caractères *** ou ___.
+Balise de mise en forme en gras et italique : Caractères *** ou ___ .
 
 Puce : Caractère * en début de ligne suivi d'au moins un espace. Indique un élement d'une liste à puce.
 
-Retour à la ligne : Caractère \n indiquant la fin d'une ligne.
+Retour à la ligne : Caractère \n ou \r indiquant la fin d'une ligne.
