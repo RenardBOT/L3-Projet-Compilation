@@ -1,13 +1,16 @@
 Axiome S
 Vocabulaire non terminal:
-S, T, M, G, I, B, L, E
+S, T, P, M, G, I, IG, B, GI, L, E
 Vocabulaire terminal: 
-Morceau de texte m, balise de titre t, ligne vide v, retour à la ligne simple r, point de liste l, etoile e, underscore u
-Règles: S-> TS | MS | LS | lambda
+Morceau de texte m, balise de titre t, ligne vide v, retour à la ligne simple r, etoile e, underscore u
+Règles: S-> TS | PS | lambda
+P-> M | Mv | L
 T-> tmr
-M-> m | G | I | B
-G-> eme | umu
-I-> eemee | uumuu 
-B-> eeemeee | uuumuuu
-L-> *" "EmL | *" "Em
+M-> m | I | G | B | IG | GI
+I-> eme | umu
+G-> eIe | uIu
+B-> eGe | uGu
+IG-> emGe | umGu
+GI-> eemIee | uumIuu
+L-> e" "EMrL | e" "EMv
 E-> " "E | lambda
