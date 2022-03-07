@@ -16,3 +16,24 @@ GI2-> eGI3e | uGI3u
 GI3-> mI | mIm | Im
 L-> e" "EMrL | e" "EMv
 E-> " "E | lambda
+
+
+Deuxième version : 
+
+Axiome S
+Vocabulaire non terminal:
+S, T, P, M, G, , L, E
+Vocabulaire terminal: 
+Morceau de texte m, balise de titre t, ligne vide v, retour à la ligne simple r, etoile e, underscore u
+Règles: S-> TS | PS | lambda
+P-> M | Mv | L
+T-> tmr
+__________________________ partie modifiée 
+M-> m | G | I 
+G-> eeAee | uuAuu     // texte en gras...
+A-> mA | emeA | umuA | lambda // ... pouvant contenir une suite de texte normal et en italique
+I-> eBe | uBu         // texte en italique...
+B-> mB | eemeeB | uumuuB | lambda // ... pouvant contenir une suite de texte normal et en gras
+_________________________ fin partie modifiée
+L-> e" "EMrL | e" "EMv
+E-> " "E | lambda
