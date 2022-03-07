@@ -8,12 +8,10 @@ P-> M | Mv | L
 T-> tmr
 M-> m | I | G | B | IG | GI
 I-> eme | umu
-G-> eIe | uIu
+G-> eemee | uumuu
 B-> eGe | uGu
-IG-> emGe | umGu
-GI-> eGI2e | uGI2u
-GI2-> eGI3e | uGI3u
-GI3-> mI | mIm | Im
+IG-> emGe | umGu | eGme | uGmu
+GI-> eemIee | uumIuu | eeImee | uuImuu 
 L-> e" "EMrL | e" "EMv
 E-> " "E | lambda
 
