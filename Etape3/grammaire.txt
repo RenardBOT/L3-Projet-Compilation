@@ -29,7 +29,7 @@ Règles: S-> TS | PS | lambda
 P-> M | Mv | L
 T-> tmr
 __________________________ partie modifiée 
-M-> m | G | I 
+M-> mM | GM | IM | lambda
 G-> eeAee | uuAuu     // texte en gras...
 A-> mA | emeA | umuA | lambda // ... pouvant contenir une suite de texte normal et en italique
 I-> eBe | uBu         // texte en italique...
