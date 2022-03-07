@@ -22,7 +22,7 @@ Deuxième version :
 
 Axiome S
 Vocabulaire non terminal:
-S, T, P, M, G, , L, E
+S, T, P, M, G, I, A, B, L, E
 Vocabulaire terminal: 
 Morceau de texte m, balise de titre t, ligne vide v, retour à la ligne simple r, etoile e, underscore u
 Règles: S-> TS | PS | lambda
