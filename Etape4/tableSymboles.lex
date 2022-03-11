@@ -2,12 +2,11 @@
 	//Compilation
 	//lex -v exemple0.lex
 	//gcc -Wall lex.yy.c -o analyseur -lfl
-	//CATEGORIES : etoile = 1 , underscore = 2 , texte = 3
 	//SOUS-CATEGORIES : titre = 1 , normal = 2 , item = 3
 
 #include <stdio.h>
 
-int TAB[100][5];
+int TAB[100][4];
 int position = 1;
 int it = 0;
 int level = 0;
@@ -20,44 +19,51 @@ RETOURLIGNE \n|(\r\n)
 
 %%
 
-^" "{0,3}\#{1,6}" "+ {
+<INITIAL>^" "{0,3}\#{1,6}" "+ {
 	level = titleLevel();
 	BEGIN TITRE;
 }
 
-{RETOURLIGNE} {
-	printf("Retour à la ligne simple\n");
+<TITRE>{RETOURLIGNE} {
+	printf("Fin titre\n");
 }
 
-({RETOURLIGNE}" "*){2,} {
+<TITRE>({RETOURLIGNE}" "*){2,} {
+	printf("Fin titre\n");
+}
+
+<INITIAL>({RETOURLIGNE}" "*){2,} {
 	printf("Ligne vide\n");
 }
 
-^\*" "+ {
-	printf("Point de liste\n");
+<INITIAL>^\*" "+ {
+	printf("Debut de liste\n");
 	BEGIN ITEM;
 }
 
+<ITEM>^\*" "+ {
+	printf("item de liste\n");
+}
+
+<ITEM>({RETOURLIGNE}" "*){2,} {
+	printf("Fin de liste\n");
+}
 
 "*" {
-	printf("ETOILE [index : %d]\n", fillTab(0,0,1,0,0));
+	printf("ETOILE\n");
 }
 
-"_" {
-	printf("UNDERSCORE [index : %d]\n", fillTab(0,0,2,0,0));
+<INITIAL>[^" "\t#\*_\n\r][^#\*\n\r]+ {
+	printf("TEXTE : %s [index : %d]\n", yytext,fillTab(position,yyleng,2,0));
 }
 
-<INITIAL>[^" "\t#\*_\n\r][^#\*_\n\r]+ {
-	printf("TEXTE [index : %d]\n", fillTab(position,yyleng,3,2,0));
-}
-
-<TITRE>[^" "\t#\*_\n\r][^#\*_\n\r]+ {
-	printf("TEXTE [index : %d]\n", fillTab(position,yyleng,3,1,level));
+<TITRE>[^" "\t#\*_\n\r][^#\*\n\r]+ {
+	printf("TEXTE [index : %d]\n", fillTab(position,yyleng,1,level));
 	BEGIN INITIAL;
 }
 
-<ITEM>[^" "\t#\*_\n\r][^#\*_\n\r]+ {
-	printf("TEXTE [index : %d]\n", fillTab(position,yyleng,3,3,0));
+<ITEM>[^" "\t#\*\n\r][^#\*\n\r]+ {
+	printf("TEXTE [index : %d]\n", fillTab(position,yyleng,3,0));
 	BEGIN INITIAL;
 }
 
@@ -70,12 +76,11 @@ RETOURLIGNE \n|(\r\n)
 }
 %%
 
-int fillTab(int pos, int lg, int cat, int sscat, int niveau){
+int fillTab(int pos, int lg, int sscat, int niveau){
 	TAB[it][0] = pos;
 	TAB[it][1] = lg;
-	TAB[it][2] = cat;
-	TAB[it][3] = sscat;
-	TAB[it][4] = niveau;
+	TAB[it][2] = sscat;
+	TAB[it][3] = niveau;
 	position += yyleng ;
 	return it++;
 } 
@@ -90,9 +95,9 @@ int titleLevel(){
 } 
 
 void printTAB(){
-	printf("pos | lg | cat | sscat | lv title\n");
+	printf("pos\t|\tlg\t|\tsscat\t|\tlv title\n");
 	for(int i = 0 ; i < it ; i++)
-		printf("%d | %d | %d | %d | %d\n",TAB[i][0],TAB[i][1],TAB[i][2],TAB[i][3],TAB[i][4]);
+		printf("%d\t|\t%d\t|\t%d\t|\t%d\n",TAB[i][0],TAB[i][1],TAB[i][2],TAB[i][3]);
 } 
 
 int yywrap(){
