@@ -58,7 +58,6 @@ RETOURLIGNE \n|(\r\n)
 
 "*" {
 	printf("ETOILE\n");
-	return ETOILE;
 }
 
 <INITIAL>[^" "\t#\*_\n\r][^#\*\n\r]+ {
@@ -69,13 +68,11 @@ RETOURLIGNE \n|(\r\n)
 <TITRE>[^" "\t#\*_\n\r][^#\*\n\r]+ {
 	printf("TEXTE [index : %d]\n", fillTab(position,yyleng,1,level));
 	BEGIN INITIAL;
-	return TXT;
 }
 
 <ITEM>[^" "\t#\*\n\r][^#\*\n\r]+ {
 	printf("TEXTE [index : %d]\n", fillTab(position,yyleng,3,0));
 	BEGIN INITIAL;
-	return TXT;
 }
 
 [" "\t] {
