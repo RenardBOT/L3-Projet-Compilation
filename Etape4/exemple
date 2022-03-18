@@ -1,0 +1,14 @@
+Exemple de texte de test
+
+#  avec un titre de niveau 1
+## et un titre de niveau 2
+
+* une liste comportant 3 items
+* le second avec un texte non formatté
+* et le troisième avec un texte * en italique *
+
+puis un texte ** en gras **
+et un autre *** en gras italique ***
+
+ici un caractère interdit : _
+et ici un texte * synatxiquement incorrect 
