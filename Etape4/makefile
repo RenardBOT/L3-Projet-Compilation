@@ -1,3 +1,5 @@
+all: analyseur
+
 y.tab.c: tableSymboles.yacc
 	yacc tableSymboles.yacc
 
@@ -10,7 +12,7 @@ lex.yy.c: tableSymboles.lex
 lex.yy.o: lex.yy.c y.tab.h
 	gcc -Wall -c lex.yy.c
 
-analyseur: y.tab.c lex.yy.o
+analyseur: lex.yy.o y.tab.c
 	gcc -Wall y.tab.c lex.yy.o -lfl -o analyseur
 
 clear:
