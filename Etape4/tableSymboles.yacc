@@ -48,6 +48,7 @@ liste_textes : TXT
 %%
 int main(){
     yyparse();
+	yylex();
     return 0;
 }
 void yyerror(char*s){
