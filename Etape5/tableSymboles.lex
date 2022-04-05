@@ -4,11 +4,13 @@
 	//gcc -Wall lex.yy.c -o analyseur -lfl
 	//SOUS-CATEGORIES : titre = 1 , normal = 2 , item = 3
 
+	// ./analyseur < exemple.txt
+
 #include <stdio.h>
 
 #include "y.tab.h"
 
-int TAB[100][4];
+int TAB[100][5];
 char CH[500];
 int position = 1;
 int it = 0;
@@ -16,12 +18,18 @@ int level = 0;
 %}
 
 RETOURLIGNE \n|(\r\n)
-TEXT [^" "\t#\*_\n\r][^#\*\n\r_]+
+TEXT [^" "\t#\*_\n\r\\][^#\*\n\r_\\]+ 
+
 
 %start TITRE
 %start ITEM
 
 %%
+
+"\\*" {
+	printf("ETOILE ECHAPPEE\n");
+	return ECHAPEE;
+}
 
 <INITIAL>^" "{0,3}\#{1,6}" "+ {
 	level = titleLevel();
@@ -75,20 +83,26 @@ TEXT [^" "\t#\*_\n\r][^#\*\n\r_]+
 }
 
 <INITIAL>{TEXT} {
-	printf("TEXTE : %s [index : %d]\n", yytext,fillTab(position,yyleng,2,0));
+	int indice = fillTab(position,yyleng,2,0);
+	printf("TEXTE : %s [index : %d]\n", yytext,indice);
 	strcat(CH, yytext);
+	yylval = indice;
 	return TXT;
 }
 
 <TITRE>{TEXT} {
-	printf("TEXTE : %s [index : %d]\n", yytext, fillTab(position,yyleng,1,level));
+	int indice = fillTab(position,yyleng,1,level);
+	printf("TEXTE : %s [index : %d]\n", yytext, indice);
 	strcat(CH, yytext);
+	yylval = indice;
 	return TXT;
 }
 
 <ITEM>{TEXT} {
-	printf("TEXTE : %s [index : %d]\n", yytext, fillTab(position,yyleng,3,0));
+	int indice = fillTab(position,yyleng,3,0);
+	printf("TEXTE : %s [index : %d]\n", yytext, indice);
 	strcat(CH, yytext);
+	yylval = indice;
 	return TXT;
 }
 
@@ -143,7 +157,7 @@ void printTAB(){
 }
 
 int yywrap(){
-	printf("\nTable des symboles\n");
+	printf("\nTable des symboles de LEX\n");
 	printTAB();
 	printf("\nCH\n");
 	printf("%s\n", CH);
