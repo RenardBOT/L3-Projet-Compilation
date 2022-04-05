@@ -3,6 +3,7 @@
 
 	extern int TAB[100][5];
 	extern int it;
+	int nbpuce=0;
 
     void yyerror(char* s);
 %}
