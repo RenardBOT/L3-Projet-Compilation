@@ -10,9 +10,9 @@
 
 #include "y.tab.h"
 
-int TAB[100][5];
+int TAB[100][6];
 char CH[500];
-int position = 1;
+int position = 0;
 int it = 0;
 int level = 0;
 %}
@@ -26,8 +26,19 @@ TEXT [^" "\t#\*_\n\r\\][^#\*\n\r_\\]+
 
 %%
 
-"\\*" {
+<INITIAL>"\\*" {
 	printf("ETOILE ECHAPPEE\n");
+	int indice = fillTab(position,1,2,0);
+	strcat(CH, "*");
+	yylval = indice;
+	return ECHAPEE;
+}
+
+<ITEM>"\\*" {
+	printf("ETOILE ECHAPPEE\n");
+	int indice = fillTab(position,1,3,0);
+	strcat(CH, "*");
+	yylval = indice;
 	return ECHAPEE;
 }
 
@@ -123,7 +134,7 @@ int fillTab(int pos, int lg, int sscat, int niveau){
 	TAB[it][1] = lg;
 	TAB[it][2] = sscat;
 	TAB[it][3] = niveau;
-	position += yyleng;
+	position += lg;
 	return it++;
 }
 
@@ -136,8 +147,8 @@ int titleLevel(){
 	return out;
 }
 
-void printTAB(){
-	printf("position|\tlength\t|\ttype\t|\ttitle level\n");
+void printTABLex(){
+	printf("position|\tlength\t|\ttype\t|\tlevel\n");
 	for(int i = 0 ; i < it ; i++)
 	{
 		printf("%d\t|\t%d\t|\t",TAB[i][0],TAB[i][1]);
@@ -158,7 +169,7 @@ void printTAB(){
 
 int yywrap(){
 	printf("\nTable des symboles de LEX\n");
-	printTAB();
+	printTABLex();
 	printf("\nCH\n");
 	printf("%s\n", CH);
 	return 1;
